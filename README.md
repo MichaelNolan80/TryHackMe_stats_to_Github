@@ -778,42 +778,6 @@ Add this to `README.md`:
 
 ---
 
-# Security Notes
-
-Do not publish:
-
-```text
-Real Linux username
-Real GitHub username if you want the guide fully generic
-Real TryHackMe profile URL if you want privacy
-Private SSH key
-GitHub tokens
-Passwords
-Exact local account details
-```
-
-Safe to publish:
-
-```text
-Generic folder paths using placeholders
-Public GitHub workflow examples
-Script logic with placeholders
-README image path
-```
-
-Never share:
-
-```bash
-~/.ssh/id_ed25519
-```
-
-Only this public key file is intended to be added to GitHub:
-
-```bash
-~/.ssh/id_ed25519.pub
-```
-
----
 
 # Final Result
 
