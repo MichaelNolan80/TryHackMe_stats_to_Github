@@ -883,6 +883,7 @@ Possible future improvements:
 5. Store the crop values in a config file.
 6. Add a second image for another profile/stat section.
 7. Add automatic image compression before pushing to GitHub.
+8. Find a way to copy just a names sectioon and not just an area that can move due to banners. 
 
 ---
 
