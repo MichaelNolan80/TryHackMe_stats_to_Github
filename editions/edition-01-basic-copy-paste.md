@@ -351,6 +351,9 @@ This allowed the crop values to be adjusted quickly using an existing screenshot
 
 ```bash
 nano /home/<linux-user>/scripts/tryhackme-screenshot/test_crop.py
+
+<img width="870" height="277" alt="image" src="https://github.com/user-attachments/assets/35879831-7078-4fe5-aa91-e33611675f0d" />
+
 ```
 
 Paste:
