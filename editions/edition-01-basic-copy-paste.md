@@ -2,7 +2,7 @@
 
 ## Original Plan
 
-The original plan was to
+### The original plan was to
 
 1. Take a screenshot of a TryHackMe profile page.
 2. Crop the screenshot so only the important profile/statistics section was visible.
@@ -11,7 +11,7 @@ The original plan was to
 5. Display the image in a GitHub README.
 6. Automate the whole process so the image updates without manual input.
 
-Expected README output:
+### Expected README output
 
 ```markdown
 ![TryHackMe Profile](images/tryhackme-profile-cropped.png)
@@ -21,7 +21,7 @@ Expected README output:
 ---
 ## Expected Outcome
 
-The intended final workflow was:
+### The intended final workflow was:
 
 ```text
 Automated scheduled task
@@ -43,7 +43,7 @@ The original idea was to use **GitHub Actions** to run the screenshot process di
 
 That approach did not work because the TryHackMe website, protected by browser verification/security checks, blocked the GitHub Actions cloud runner. Instead of receiving the real profile page, the workflow received a browser verification failure.
 
-The working approach changed to:
+### The working approach changed to
 
 ```text
 Run the screenshot script locally on Kali
@@ -57,7 +57,7 @@ This worked because the Kali machine could access and screenshot the TryHackMe p
 
 ## Final Working Design
 
-Final automation flow:
+### Final automation flow:
 
 ```text
 Kali Linux cron job
@@ -95,7 +95,7 @@ Kali Linux cron job
 
 ## Final File Structure
 
-Project script folder:
+### Project script folder
 
 ```text
 /home/<linux-user>/scripts/tryhackme-screenshot/
@@ -107,7 +107,7 @@ Project script folder:
 └── cron.log
 ```
 
-Local GitHub repository:
+### Local GitHub repository
 
 ```text
 /home/<linux-user>/<github-repo>/
@@ -117,7 +117,7 @@ Local GitHub repository:
 └── .git/
 ```
 
-README image reference:
+### README image reference
 
 ```markdown
 ![TryHackMe Profile](images/tryhackme-profile-cropped.png)
@@ -146,7 +146,7 @@ No real usernames, passwords, tokens, or SSH keys are included in this document.
 
 ## 1. Create the Project Folder
 
-Create a folder to hold the automation files:
+### Create a folder to hold the automation files
 
 ```bash
 mkdir -p /home/<linux-user>/scripts/tryhackme-screenshot
@@ -208,7 +208,7 @@ Create the main script:
 nano /home/<linux-user>/scripts/tryhackme-screenshot/screenshot_profile.py
 ```
 
-Paste the following redacted version:
+### Paste the following redacted version
 
 ```python
 from playwright.sync_api import sync_playwright
@@ -315,7 +315,7 @@ Ctrl + X
 
 ## 5. Test the Screenshot Script
 
-Run the script manually:
+### Run the script manually
 
 ```bash
 /home/<linux-user>/scripts/tryhackme-screenshot/venv/bin/python /home/<linux-user>/scripts/tryhackme-screenshot/screenshot_profile.py
@@ -347,7 +347,7 @@ This allowed the crop values to be adjusted quickly using an existing screenshot
 
 ## 6. Create the Offline Crop Test Script
 
-Create the file:
+### Create the file:
 
 ```bash
 nano /home/<linux-user>/scripts/tryhackme-screenshot/test_crop.py
@@ -389,7 +389,7 @@ print("Crop values:")
 print(f"left={left}, top={top}, right={right}, bottom={bottom}")
 ```
 
-Run it:
+### Run it
 
 ```bash
 /home/<linux-user>/scripts/tryhackme-screenshot/venv/bin/python /home/<linux-user>/scripts/tryhackme-screenshot/test_crop.py
@@ -411,7 +411,7 @@ xdg-open /home/<linux-user>/scripts/tryhackme-screenshot/tryhackme-profile-cropp
 
 ## Final Crop Values
 
-The final crop values used were:
+### The final crop values used were
 
 ```python
 left = 0
@@ -430,7 +430,7 @@ This meant that when the banner was gone the crop was then to low -
 
 so I went in using the test script using the new screen shot that was made and found the new area. 
 
-The new crop values used were:
+### The new crop values used were
 
 ```python
 left = 0
@@ -447,7 +447,7 @@ bottom = 380
 
 A GitHub Actions workflow was created so GitHub could run the screenshot process directly.
 
-Expected workflow:
+### Expected workflow
 
 ```text
 GitHub Actions
@@ -457,7 +457,7 @@ GitHub Actions
 → Commit PNG into repo
 ```
 
-Example workflow file:
+### Example workflow file
 
 ```yaml
 name: Update TryHackMe Screenshot
@@ -507,7 +507,7 @@ GitHub Actions was blocked by the website’s browser verification/security page
 <img width="1299" height="727" alt="image" src="https://github.com/user-attachments/assets/b4eb0e2e-05ea-453d-9095-d8022e20a666" />
 
 
-The final decision was:
+### The final decision was
 
 ```text
 Do not use GitHub Actions for the screenshot capture.
@@ -529,7 +529,7 @@ sudo apt update
 sudo apt install -y git
 ```
 
-Confirm installation:
+### Confirm installation
 
 ```bash
 git --version
@@ -539,14 +539,14 @@ git --version
 
 ## 8. Clone the GitHub Repository Locally
 
-Clone the repository:
+### Clone the repository
 
 ```bash
 cd /home/<linux-user>
 git clone https://github.com/<github-username>/<github-repo>.git
 ```
 
-This creates:
+### This creates
 
 ```text
 /home/<linux-user>/<github-repo>
@@ -636,14 +636,14 @@ Key: <ssh-public-key>
 
 ## 13. Change the Git Remote from HTTPS to SSH
 
-Inside the local repository:
+### Inside the local repository
 
 ```bash
 cd /home/<linux-user>/<github-repo>
 git remote set-url origin git@github.com:<github-username>/<github-repo>.git
 ```
 
-Check the remote:
+### Check the remote
 
 ```bash
 git remote -v
@@ -664,7 +664,7 @@ origin  git@github.com:<github-username>/<github-repo>.git (push)
 ssh -T git@github.com
 ```
 
-Expected result:
+### Expected result
 
 ```text
 Hi <github-username>! You've successfully authenticated...
@@ -687,7 +687,7 @@ If Git reports that the local branch is ahead of the remote, run:
 git push
 ```
 
-If Git rejects the push because the remote contains changes, run:
+### If Git rejects the push because the remote contains changes, run
 
 ```bash
 git pull --rebase origin main
@@ -700,13 +700,13 @@ git push
 
 ## 16. Add the Cron Job
 
-Open crontab:
+### Open crontab
 
 ```bash
 crontab -e
 ```
 
-Add:
+### Add
 
 ```bash
 0 7 * * * /home/<linux-user>/scripts/tryhackme-screenshot/venv/bin/python /home/<linux-user>/scripts/tryhackme-screenshot/screenshot_profile.py
@@ -718,7 +718,7 @@ This runs the script every day at 07:00.
 
 ## 17. Save the Cron Job
 
-If the editor is Vim, save and exit with:
+### If the editor is Vim, save and exit with
 
 ```text
 Esc
@@ -726,13 +726,13 @@ Esc
 Enter
 ```
 
-Confirm the cron job:
+### Confirm the cron job
 
 ```bash
 crontab -l
 ```
 
-Expected output:
+### Expected output
 
 ```bash
 0 7 * * * /home/<linux-user>/scripts/tryhackme-screenshot/venv/bin/python /home/<linux-user>/scripts/tryhackme-screenshot/screenshot_profile.py
@@ -742,13 +742,13 @@ Expected output:
 
 ## 18. Optional: Add Logging to Cron
 
-Recommended cron line with logging:
+### Recommended cron line with logging
 
 ```bash
 0 7 * * * /home/<linux-user>/scripts/tryhackme-screenshot/venv/bin/python /home/<linux-user>/scripts/tryhackme-screenshot/screenshot_profile.py >> /home/<linux-user>/scripts/tryhackme-screenshot/cron.log 2>&1
 ```
 
-Check the log:
+### Check the log
 
 ```bash
 cat /home/<linux-user>/scripts/tryhackme-screenshot/cron.log
@@ -758,7 +758,7 @@ cat /home/<linux-user>/scripts/tryhackme-screenshot/cron.log
 
 # Final README Entry
 
-Add this to `README.md`:
+### Add this to `README.md`
 
 ```markdown
 ![TryHackMe Profile](images/tryhackme-profile-cropped.png)
@@ -788,7 +788,7 @@ Add this to `README.md`:
 
 The project was successful.
 
-The final system:
+### The final system
 
 ```text
 Runs automatically from Kali
@@ -801,7 +801,7 @@ Pushes it to GitHub
 Displays it in the README
 ```
 
-The automation works without manual input, provided that:
+### The automation works without manual input, provided that
 
 ```text
 Kali is powered on
@@ -815,44 +815,44 @@ Cron is active
 
 # Final Verification Commands
 
-Check cron:
+### Check cron
 
 ```bash
 crontab -l
 ```
 
-Run the script manually:
+### Run the script manually
 
 ```bash
 /home/<linux-user>/scripts/tryhackme-screenshot/venv/bin/python /home/<linux-user>/scripts/tryhackme-screenshot/screenshot_profile.py
 ```
 
-Check output image:
+### Check output image
 
 ```bash
 ls -lh /home/<linux-user>/scripts/tryhackme-screenshot/tryhackme-profile-cropped.png
 ```
 
-Check GitHub repo status:
+### Check GitHub repo status
 
 ```bash
 cd /home/<linux-user>/<github-repo>
 git status
 ```
 
-Check GitHub remote:
+### Check GitHub remote
 
 ```bash
 git remote -v
 ```
 
-Expected remote format:
+### Expected remote format
 
 ```text
 git@github.com:<github-username>/<github-repo>.git
 ```
 
-Check cron log:
+### Check cron log
 
 ```bash
 cat /home/<linux-user>/scripts/tryhackme-screenshot/cron.log
@@ -862,7 +862,7 @@ cat /home/<linux-user>/scripts/tryhackme-screenshot/cron.log
 
 # Suggested Future Improvements
 
-Possible future improvements:
+### Possible future improvements
 
 
 1. Find a way to copy just a named section of the web page and not just an area that can move due to banners.
