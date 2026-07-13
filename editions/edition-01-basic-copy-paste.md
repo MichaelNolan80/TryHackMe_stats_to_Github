@@ -2,7 +2,7 @@
 
 ## Original Plan
 
-The original plan was to:
+The original plan was to
 
 1. Take a screenshot of a TryHackMe profile page.
 2. Crop the screenshot so only the important profile/statistics section was visible.
