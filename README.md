@@ -14,6 +14,9 @@ The goal of this project is to:
 - Display that image in my GitHub profile or project README
 - Improve the automation over time through separate editions
 
+<img width="1380" height="260" alt="image" src="https://github.com/user-attachments/assets/13324b41-f9b0-40c2-9c7c-e49936f02514" />
+
+
 ## Why This Project Exists
 
 TryHackMe profile badges and public embed options appear to have changed over time, and older badge workflows may no longer work reliably.
