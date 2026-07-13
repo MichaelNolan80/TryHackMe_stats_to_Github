@@ -48,7 +48,7 @@ Each edition documents a different version of the project. This keeps the main R
 | Edition | Description | Status |
 |---|---|---|
 | [Edition 1 — Basic Copy and Paste](editions/edition-01-basic-copy-paste.md) | First working version using screenshot capture and fixed cropping | Complete / tested |
-| [Edition 2 — Banner Detection and Selected Area Capture](edition 2 — Banner Detection and Selected Area Capture) | Planned improvement to close banners and capture a selected stats section | Planned |
+| [Edition 2 — Banner Detection and Selected Area Capture](editions/edition 2 — Banner Detection and Selected Area Capture.md) | Planned improvement to close banners and capture a selected stats section | Planned |
 
 ## Current Output
 
