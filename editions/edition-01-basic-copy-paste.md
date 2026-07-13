@@ -11,7 +11,7 @@
 5. Display the image in a GitHub README.
 6. Automate the whole process so the image updates without manual input.
 
-### Expected README output
+ Expected README output
 
 ```markdown
 ![TryHackMe Profile](images/tryhackme-profile-cropped.png)
@@ -21,7 +21,7 @@
 ---
 ## Expected Outcome
 
-### The intended final workflow was:
+### The intended final workflow was
 
 ```text
 Automated scheduled task
@@ -424,6 +424,7 @@ These values were copied into the main `screenshot_profile.py` script.
 
 ###Small edit,
 When the project was run there was a banner at the top of the page I did not see, so the area that I wanted was lower then it would be normally. 
+
 <img width="871" height="118" alt="image" src="https://github.com/user-attachments/assets/2b91754e-e597-4bbe-ad80-ec3f697a71f9" />
 This meant that when the banner was gone the crop was then to low - 
 <img width="851" height="166" alt="image" src="https://github.com/user-attachments/assets/d3cb3672-79a2-43e7-8da5-0dfa7a445b5b" />
