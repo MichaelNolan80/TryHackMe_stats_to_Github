@@ -1,5 +1,5 @@
 
-My project to get updated stats from TryHackMe to show on my Githun. 
+My project to get updated stats from TryHackMe to show on my Github. 
 # Automated TryHackMe Profile Screenshot for GitHub README
 
 ## Project Summary
