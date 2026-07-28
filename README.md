@@ -14,7 +14,8 @@ The goal of this project is to:
 - Display that image in my GitHub profile or project README
 - Improve the automation over time through separate editions
 
-![TryHackMe Profile](images/tryhackme-profile-cropped.png)
+<img width="1380" height="260" alt="image" src="https://github.com/user-attachments/assets/cc377e39-07eb-4ff7-8072-ad818a9c0c50" />
+
 
 
 ## Why This Project Exists
